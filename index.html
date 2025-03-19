@@ -107,20 +107,25 @@
     
     <script>
         function calcular() {
-            let diluicao = document.getElementById("diluicao").value;
-            let volume = document.getElementById("volume").value;
-            
-            if (diluicao > 0 && volume > 0) {
-                let volumeAnticorpo = volume / diluicao;
-                let volumeDiluente = volume - volumeAnticorpo;
-                
-                document.getElementById("resultado").innerHTML =
-                    `Volume de Anticorpo: ${volumeAnticorpo.toFixed(2)} µL <br>
-                     Volume de Diluente: ${volumeDiluente.toFixed(2)} µL`;
-            } else {
-                document.getElementById("resultado").innerHTML = "Preencha os valores corretamente.";
-            }
-        }
+    let diluicao = document.getElementById("diluicao").value;
+    let volume = document.getElementById("volume").value;
+    
+    if (diluicao > 0 && volume > 0) {
+        let volumeAnticorpo = volume / diluicao;
+        let volumeDiluente = volume - volumeAnticorpo;
+
+        // Convertendo para mililitros (mL)
+        let volumeAnticorpoML = volumeAnticorpo / 1000;
+        let volumeDiluenteML = volumeDiluente / 1000;
+
+        document.getElementById("resultado").innerHTML =
+            `Volume de Anticorpo: ${volumeAnticorpo.toFixed(2)} µL (${volumeAnticorpoML.toFixed(4)} mL) <br>
+             Volume de Diluente: ${volumeDiluente.toFixed(2)} µL (${volumeDiluenteML.toFixed(4)} mL)`;
+    } else {
+        document.getElementById("resultado").innerHTML = "Preencha os valores corretamente.";
+    }
+}
+
     </script>
 </body>
 </html>
