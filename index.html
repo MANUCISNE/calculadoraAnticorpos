@@ -6,17 +6,30 @@
     <title>Calculadora de Anticorpos - TOXRUN</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
-        }
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+    max-width: 90%;
+    margin-top: calc(50vh - 150px); /* Centraliza sem encobrir o header */
+    position: relative; /* Evita sobreposição */
+}
+
         .header {
             background-color: white;
             color: #003366;
@@ -30,16 +43,6 @@
         }
         .header img {
             height: 50px;
-        }
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            width: 350px;
-            text-align: center;
-            margin-top: 80px;
-            max-width: 90%;
         }
         h2 {
             margin-bottom: 20px;
