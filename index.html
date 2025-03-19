@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Anticorpos - TOXRUN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .header {
+            background-color: white;
+            color: #003366;
+            padding: 15px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-bottom: 2px solid #ccc;
+        }
+        .header img {
+            height: 50px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #003366;
+        }
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .footer {
+            background-color: #494949;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="tox.png" alt="Logo TOXRUN">
+        <h1>TOXRUN - Toxicology Research Unit</h1>
+    </div>
+    
+    <div class="container">
+        <h2>Calculadora de Anticorpos</h2>
+        <label for="diluicao">Diluição Recomendada:</label>
+        <input type="number" id="diluicao" placeholder="Ex: 500">
+        
+        <label for="volume">Volume Total da Solução (µL):</label>
+        <input type="number" id="volume" placeholder="Ex: 1000">
+        
+        <button onclick="calcular()">Calcular</button>
+        
+        <div class="result" id="resultado"></div>
+    </div>
+    
+    <div class="footer">
+        <p>&copy; 2025 TOXRUN - Toxicology Research Unit | IUCS CESPU</p>
+    </div>
+    
+    <script>
+        function calcular() {
+            let diluicao = document.getElementById("diluicao").value;
+            let volume = document.getElementById("volume").value;
+            
+            if (diluicao > 0 && volume > 0) {
+                let volumeAnticorpo = volume / diluicao;
+                let volumeDiluente = volume - volumeAnticorpo;
+                
+                document.getElementById("resultado").innerHTML =
+                    `Volume de Anticorpo: ${volumeAnticorpo.toFixed(2)} µL <br>
+                     Volume de Diluyente: ${volumeDiluente.toFixed(2)} µL`;
+            } else {
+                document.getElementById("resultado").innerHTML = "Preencha os valores corretamente.";
+            }
+        }
+    </script>
+</body>
+</html>
